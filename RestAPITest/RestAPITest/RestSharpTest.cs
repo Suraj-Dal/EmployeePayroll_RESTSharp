@@ -69,5 +69,14 @@ namespace RestAPITest
             Assert.AreEqual(body.Salary, data.Salary);
             Console.WriteLine(response.Content);
         }
+        [Test]
+        public void OnDeleteRequest_ShouldDeleteFromJSONServer()
+        {
+            restClient = new RestClient("http://localhost:4000");
+            RestRequest request = new RestRequest("/employees/7", Method.Delete);
+            RestResponse response = restClient.Execute(request);
+            Assert.AreEqual(response.StatusCode, HttpStatusCode.OK);
+            Console.WriteLine(response.Content);
+        }
     }
 }
