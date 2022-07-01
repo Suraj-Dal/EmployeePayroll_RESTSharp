@@ -24,6 +24,26 @@
       "id": 5,
       "name": "Ravi",
       "salary": "25000"
+    },
+    {
+      "id": 6,
+      "name": "Abhijit",
+      "salary": "23000"
+    },
+    {
+      "id": 7,
+      "name": "Nitya",
+      "salary": "23000"
+    },
+    {
+      "id": 8,
+      "name": "Om",
+      "salary": "21000"
+    },
+    {
+      "id": 9,
+      "name": "Mohan",
+      "salary": "22000"
     }
   ]
 }
