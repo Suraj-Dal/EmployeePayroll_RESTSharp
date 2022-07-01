@@ -55,5 +55,19 @@ namespace RestAPITest
                 Console.WriteLine(response.Content);
             });
         }
+        [Test]
+        public void OnUpdateRequest_ShouldUpdateInJSONServer()
+        {
+            restClient=new RestClient("http://localhost:4000");
+            RestRequest request = new RestRequest("/employees/3", Method.Put);
+            var body = new Employee { Id = 3, Name = "Ramesh", Salary = "19800" };
+            request.AddParameter("application/json", body, ParameterType.RequestBody);
+            RestResponse response = restClient.Execute(request);
+            Assert.AreEqual(response.StatusCode, HttpStatusCode.OK);
+            Employee data = JsonConvert.DeserializeObject<Employee>(response.Content);
+            Assert.AreEqual(body.Name, data.Name);
+            Assert.AreEqual(body.Salary, data.Salary);
+            Console.WriteLine(response.Content);
+        }
     }
 }
